@@ -1,45 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import MainLayout from "./routes/layout.tsx";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 
 import "./index.css";
-import HomeLayout from "./routes/home/layout.tsx";
-import Home from "./routes/home/index.tsx";
-import Login from "./routes/login/index.tsx";
-import Header from "./components/header/index.tsx";
+import MainLayout from "./layout.tsx";
+import Home from "./routes/home.tsx";
+import Login from "./routes/login.tsx";
 
-export const HomePage: React.FC = () => {
-  return (
-    <HomeLayout>
-      <Header />
-
-      <Home />
-    </HomeLayout>
-  );
-};
-
-export const LoginPage: React.FC = () => {
-  return <Login />;
-};
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+      </Route>
+      <Route path="/login" element={<Login />} />
+    </>
+  )
+);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <MainLayout>
-      <RouterProvider router={router} />
-    </MainLayout>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

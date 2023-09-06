@@ -1,6 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+const Home: React.FC = () => {
+  return <div>Home</div>;
+};
+
+Home.propTypes = {};
+
 type HomeLayoutProps = {
   children: React.ReactNode;
 };
@@ -10,7 +16,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = (props) => {
 };
 
 HomeLayout.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
-export default HomeLayout;
+export default Home;
