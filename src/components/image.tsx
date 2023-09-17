@@ -22,11 +22,15 @@ type ImageProps = {
   height?: number;
 };
 
-const Source = (source: [string, { src: string; w: number }[]]) => {
+const Source = (
+  source: [string, { src: string; w: number }[]],
+  index: number
+) => {
   const [format, images] = source;
 
   return (
     <source
+      key={index}
       srcSet={images.map((i) => i.src + " " + i.w + "w").join(", ")}
       type={"image/" + format}
     />
