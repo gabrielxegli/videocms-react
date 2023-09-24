@@ -9,8 +9,8 @@ export interface Item {
 }
 
 export enum FileType {
-    FOLDER,
-    FILE,
+    FOLDER = 'Folder',
+    FILE = 'File',
 }
 
 export interface FolderItem extends Item {

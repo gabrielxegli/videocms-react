@@ -7,7 +7,7 @@ import { Button } from './ui/button';
 
 const Header: React.FC = () => {
     return (
-        <header className="flex items-center justify-between px-2 py-4">
+        <header className="sticky top-0 z-50 flex items-center justify-between bg-[rgba(12,10,9,60%)] px-2 py-4 backdrop-blur-sm">
             <Image image={image} alt="VideoCMS" width={50} height={50} />
 
             <nav className="flex h-2 items-center gap-4">

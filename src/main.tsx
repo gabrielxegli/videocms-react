@@ -12,7 +12,8 @@ import {
 import { ThemeProvider } from './providers/theme.tsx';
 import { Toaster } from 'react-hot-toast';
 import { QueryClientProvider } from '@tanstack/react-query';
-
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import './index.css';
 import { queryClient } from './util/queryClient.ts';
 import { checkAuth } from './util/auth.ts';
@@ -24,7 +25,9 @@ export const Root: React.FC = () => {
     return (
         <QueryClientProvider client={queryClient}>
             <ThemeProvider>
-                <Outlet />
+                <DndProvider backend={HTML5Backend}>
+                    <Outlet />
+                </DndProvider>
 
                 <Toaster
                     toastOptions={{
